@@ -1,0 +1,146 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block main %}
+    {% block titulo %}
+        <h1>Detalhes do Paciente</h1>
+    {% endblock titulo %}
+    <div class="row g-3 container-fluid">
+        <div class="col-md-2">
+            <label for="id_prontuario" class="form-label ">
+                Prontuario
+            </label>
+            <input
+                    type="text"
+                    name="prontuario"
+                    class="textinput textInput form-control"
+                    id="id_prontuario"
+                    placeholder="{{ paciente.prontuario }}"
+                    readonly/>
+        </div>
+        <div class="col-md-2">
+            <label for="id_cpf" class="form-label "> CPF </label>
+
+            <input
+                    type="text"
+                    name="cpf"
+                    class="textinput textInput form-control"
+                    id="id_cpf"
+                    placeholder="{{ paciente.usuario.cpf }}"
+                    readonly/>
+        </div>
+        <div class="col-md-8">
+            <label for="id_nome_completo" class="form-label ">
+                Nome Completo
+            </label>
+
+            <input
+                    type="text"
+                    name="nome_completo"
+                    class="textinput textInput form-control"
+                    id="id_nome_completo"
+                    placeholder="{{ paciente.usuario.nome_completo }}"
+                    readonly/>
+        </div>
+
+        <div class="fixed container-fluid mt-4 mb-4">
+            <ul class="list-inline text-right">
+                <li class="list-inline-item">
+
+                    {% include "base/button/button_update_paciente.html" %}
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="ontainer-fluid">
+        <h1>Lista de Cirurgias</h1>
+        {% include "base/button/button_create_questionario01pk.html" %}
+        <div class="table-responsive fixed container-fluid mb-2 p-2">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Detalhes</th>
+                    {#                    <th>Deletar</th>#}
+                    <th>Cirurgia Proposta</th>
+                    <th>Sala de Cirurgia</th>
+                    <th>Data da Cirurgia</th>
+                    <th>Data da Cadastro</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for questionario01 in paciente.questionario01_set.values %}
+                    <tr>
+                        <td>
+                            <a
+                                    href="{% url 'questionario01.detail' pk=questionario01.id %}"
+                            ><span class="bi bi-person-lines-fill"></span
+                            ></a>
+                        </td>
+                        {#                        <td>#}
+                        {#                            <a href=""><span class="bi bi-trash-fill"></span></a>#}
+                        {#                        </td>#}
+                        <td>{{ questionario01.cirurgia_proposta }}</td>
+                        <td>{{ questionario01.sala_cirurgica }}</td>
+                        <td>{{ questionario01.data_cirurgia }}</td>
+                        <td>{{ questionario01.data_cadastro }}</td>
+                    </tr>
+                {% empty %}
+                    <td>Nenhum Registro</td>
+                    <td></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="ontainer-fluid">
+        <h1>Tratamento Quimioterápico</h1>
+        <a class="btn btn-secondary" href="{% url 'questionario02pk.create' pk=paciente.id %}">
+            <span class="bi bi-plus-circle"></span> Tratamento Quimioterápico
+        </a>
+
+        <div class="table-responsive fixed container-fluid mb-2 p-2">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Detalhes</th>
+                    {#                    <th>Deletar</th>#}
+                    {#                    <th>Cirurgia Proposta</th>#}
+                    {#                    <th>Sala de Cirurgia</th>#}
+                    {#                    <th>Data da Cirurgia</th>#}
+                    <th>Data da Cadastro</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for questionario02 in paciente.questionario02_set.values %}
+                    <tr>
+                        <td>
+                            <a
+                                    href="{% url 'questionario02.update' pk=questionario02.id %}"
+                            ><span class="bi bi-person-lines-fill"></span
+                            ></a>
+                        </td>
+                        {#                        <td>#}
+                        {#                            <a href=""><span class="bi bi-trash-fill"></span></a>#}
+                        {#                        </td>#}
+                        {#                        <td>{{ questionario01.cirurgia_proposta }}</td>#}
+                        {#                        <td>{{ questionario01.sala_cirurgica }}</td>#}
+                        {#                        <td>{{ questionario01.data_cirurgia }}</td>#}
+                        <td>{{ questionario02.data_cadastro }}</td>
+                    </tr>
+                {% empty %}
+                    <td>Nenhum Registro</td>
+                    <td></td>
+                    {#                    <td>-</td>#}
+                    {#                    <td>-</td>#}
+                    {#                    <td>-</td>#}
+                    <td>-</td>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock main %}

@@ -1,0 +1,67 @@
+{% extends "base/base.html" %}{% load crispy_forms_filters %}{% load crispy_forms_tags %}
+{% block main %}
+    <h1>ANTES DA INICISÃO CIRÚRGICA</h1>
+    <form action="" method="post">
+        {% csrf_token %} {#        {{ form | crispy }}#}
+        <div class="row g-3 container-fluid p-3 mt-3 mb-3">
+            <div class="col-md-3">{{ form.cirurgia_segura|as_crispy_field }}</div>
+            <div class="col-md-3">
+                {{ form.todos_membros_e_e_p|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.nome_paciente|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.sitio_cirurgico|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.procedimento|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.lateralidade|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.antes_assepsia_c_o|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.antes_assepsia_c_o_se_sim|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.antibiotico_profilatico_a_u_m|as_crispy_field }} {{ form.antibiotico_profilatico_a_u_m_se_sim_01|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.hora_incisao_c|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.placa_bisturi_p|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.materiais_instumentais_c_d|as_crispy_field }} {{ form.materiais_instumentais_c_d_se_sim_01|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.fita_indicador_q_m|as_crispy_field }} {{ form.integrador_material|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.data_vencimento|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.cirurgia_realizada|as_crispy_field }}
+            </div>
+        
+            <div class="col-md-3">
+                {{ form.data_cadastro|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.atualizado|as_crispy_field }}
+            </div>
+        </div>
+        <div class="fixed container-fluid mt-2 mb-2 p-3">
+            <ul class="list-inline text-right">
+                <li class="list-inline-item">
+                    <button type="reset" class="btn btn-secondary">Limpar</button>
+                    <button type="submit" class="btn btn-secondary">Salvar</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+{% endblock main %}

@@ -1,0 +1,22 @@
+{% extends "base/base.html" %}
+
+{% block main %}
+    <form method="post">
+        {% csrf_token %}
+        <div class="row g-3 container-fluid">
+            {% block form %}
+
+            {% endblock form %}
+        </div>
+        <div class="fixed container-fluid mt-4 mb-4 ">
+            <ul class="list-inline text-right">
+                <li class="list-inline-item ">
+                    {% include "base/button/button_submit.html" %}
+                    {% block adicionar_button %}
+                    {% endblock adicionar_button %}
+                </li>
+
+            </ul>
+        </div>
+    </form>
+{% endblock main %}

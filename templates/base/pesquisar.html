@@ -1,0 +1,14 @@
+<form action="" method="get">
+    <div class="container-fluid mb-2 p-2 input-group">
+        <label for="id_nome_completo" class="form-label"></label>
+        <input
+                type="text"
+                name="nome_completo"
+                id="id_nome_completo"
+                class="form-control mr-sm-2"
+                placeholder="NOME COMPLETO"
+                value="{{ request.GET.nome_completo }}"/>
+        <button type="submit" class="btn btn-secondary"><span class="bi bi-search"></span> PESQUISAR</button>
+
+    </div>
+</form>

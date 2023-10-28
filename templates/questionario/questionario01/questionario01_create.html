@@ -1,0 +1,23 @@
+{% extends 'base/create.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+{% block form %}
+    <h1>Nova Cirurgia</h1>
+    <div class="col-md-6">{{ form.paciente|as_crispy_field }}</div>
+    <div class="col-md-6">{{ form.cirurgia_proposta|as_crispy_field }}</div>
+    <div class="col-md-3">{{ form.sala_cirurgica|as_crispy_field }}</div>
+    <div class="col-md-3">{{ form.data_cirurgia|as_crispy_field }}</div>
+    <div class="col-md-3">{{ form.modalidade|as_crispy_field }}</div>
+    <div class="col-md-3">{{ form.comorbidade|as_crispy_field }}</div>
+    <div class="col-md-3">{{ form.data_cadastro|as_crispy_field }}</div>
+    <div class="col-md-3">{{ form.atualizado|as_crispy_field }}</div>
+{% endblock form %}
+
+
+{% block adicionar_button %}
+    {% include "base/button/button_create_questionario01.html" %}
+{% endblock adicionar_button %}
+
+

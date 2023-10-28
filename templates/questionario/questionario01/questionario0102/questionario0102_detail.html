@@ -1,0 +1,102 @@
+{% extends "base/base.html" %}
+{% load crispy_forms_tags %}
+{% block main %}
+
+    <div class="row g-3 container-fluid p-3 mt-3 mb-3">
+        <div class="col-md-3">{{ questionario0101.cirurgia_segura }}</div>
+
+        <div class="col-md-3">
+            {{ questionario0101.pulseira_identificacao }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.prontuario_completo }}
+            {{ questionario0101.prontuario_completo_se_nao }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.possui_dispositivos }}
+            {{ questionario0101.possui_dispositivos_se_sim }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.procedimento_confirmado }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.termo_consentimento_c_a }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.exames_laborat_i_d }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.risco_perda_s }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.resserva_hemoderivados }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.resserva_CTI }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.sitio_cirurgico_d }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.jejum }}
+            {{ questionario0101.jejum_se_sim }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.alergia_conhecida }}
+            {{ questionario0101.alergia_conhecida_se_sim }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.triconomia_realizada }}
+            {{ questionario0101.triconomia_realizada_se_sim_01 }}
+            {{ questionario0101.triconomia_realizada_se_sim_02 }}
+            {{ questionario0101.triconomia_realizada_se_sim_03 }}
+
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.realizou_quimeoterapia }}
+            {{ questionario0101.realizou_quimeoterapia_se_sim_01 }}
+            {{ questionario0101.realizou_quimeoterapia_se_sim_02 }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.realizou_radioterapia }}
+            {{ questionario0101.realizou_radioterapia_se_sim_01 }}
+            {{ questionario0101.realizou_radioterapia_se_sim_02 }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.realizou_hemodialise }}
+            {{ questionario0101.realizou_hemodialise_se_sim_01 }}
+            {{ questionario0101.realizou_hemodialise_se_sim_02 }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.realizou_transplante_o }}
+            {{ questionario0101.realizou_transplante_o_se_sim }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.verificacao_anestesica_m_v_m_e_a }}
+            {{ questionario0101.verificacao_anestesica_m_v_m_e_a_se_nao }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.vias_aereas_d_r_a }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.tempo_previsto_cirurgia }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.data_cadastro }}
+        </div>
+        <div class="col-md-3">
+            {{ questionario0101.atualizado }}
+        </div>
+    </div>
+
+
+    <div class="fixed container-fluid mt-2 mb-2 p-3">
+        <ul class="list-inline text-right">
+            <li class="list-inline-item">
+                <button type="reset" class="btn btn-secondary">Limpar</button>
+                <button type="submit" class="btn btn-secondary">Salvar</button>
+            </li>
+        </ul>
+    </div>
+    </form>
+{% endblock main %}

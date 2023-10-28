@@ -1,0 +1,215 @@
+{% extends "base/base.html" %}
+
+{% block main %}
+    {#    {% include "base/cabecalho.html" %}#}
+    <h1>Detalhes da Cirurgia</h1>
+    <div class="row g-3 container-fluid mt-3 mb-3">
+        <div class="col-md-2">
+            <label for="id_prontuario" class="form-label"> Paciente </label> <input type="text"
+                name="prontuario"
+                class="textinput textInput form-control"
+                required=""
+                id="id_prontuario"
+                placeholder="{{ questionario01.paciente.prontuario }}"
+                readonly/>
+        </div>
+        <div class="col-md-6">
+            <label for="id_nome_completo" class="form-label"> Nome Completo </label> <input type="text"
+                name="nome_completo"
+                class="textinput textInput form-control"
+                required=""
+                id="id_nome_completo"
+                placeholder="{{ questionario01.paciente.usuario.nome_completo }}"
+                readonly/>
+        </div>
+        <div class="col-md-4">
+            <label for="id_cirurgia_proposta" class="form-label"> Cirurgia proposta </label> <input type="text"
+                name="cirurgia_proposta"
+                class="textinput textInput form-control"
+                required=""
+                id="id_cirurgia_proposta"
+                placeholder="{{ questionario01.cirurgia_proposta }}"
+                readonly/>
+        </div>
+        <div class="col-md-3">
+            <label for="id_sala_cirugica" class="form-label"> Sala cirugica </label> <input type="text"
+                name="sala_cirugica"
+                class="textinput textInput form-control"
+                required=""
+                id="id_sala_cirugica"
+                placeholder="{{ questionario01.sala_cirurgica }}"
+                readonly/>
+        </div>
+        <div class="col-md-2">
+            <label for="id_data_cirurugia" class="form-label"> Data da cirurgia </label> <input type="text"
+                name="data_cirurugia"
+                class="textinput textInput form-control"
+                required=""
+                id="id_data_cirurugia"
+                placeholder="{{ questionario01.data_cirurgia }}"
+                readonly/>
+        </div>
+        <div class="col-md-3">
+            <label for="id_modalidade" class="form-label"> Modalidade </label> <input type="text"
+                name="modalidade"
+                class="textinput textInput form-control"
+                required=""
+                id="id_modalidade"
+                placeholder="{{ questionario01.modalidade }}"
+                readonly/>
+        </div>
+        <div class="col-md-4">
+            <div id="div_id_comorbidade" class="mb-3">
+                <label for="id_comorbidade" class="form-label"> Comorbidade </label> <input type="text"
+                    name="comorbidade"
+                    class="textinput textInput form-control"
+                    required=""
+                    id="id_comorbidade"
+                    placeholder="{{ questionario01.comorbidade }}"
+                    readonly/>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label for="id_data_cadastro" class="form-label"> Data cadastro </label> <input type="text"
+                name="data_cadastro"
+                class="dateinput form-control"
+                required=""
+                id="id_data_cadastro"
+                placeholder="{{ questionario01.data_cadastro }}"
+                readonly/>
+        </div>
+        <div class="col-md-6">
+            <label for="id_atualizado" class="form-label "> Atualizado </label> <input type="text"
+                name="data_cadastro"
+                class="dateinput form-control"
+                id="id_atualizado"
+                placeholder="{{ questionario01.atualizado }}"
+                readonly/>
+        </div>
+    </div>
+    <div class="fixed container-fluid mt-3 mb-3">
+        <ul class="list-inline text-right">
+            <li class="list-inline-item">
+                <a class="btn btn-secondary" href="{% url 'questionario01.create' %}">
+                    <span class="bi bi-list"></span> Nova Cirúrgia </a> <a class="btn btn-secondary"
+                    href="{% url 'paciente.create' %}"> <span class="bi bi-list"></span> Novo Paciente </a>
+                <a class="btn btn-secondary" href="{% url 'questionario01.update' pk=questionario01.id %}">
+                    <span class="bi bi-arrow-repeat"></span> Atualizar </a>
+            </li>
+        </ul>
+    </div>
+    <div class="row g-3 container-fluid mt-4 mb-4">
+        <div class="p-2 border col-md-4">
+            <h1>Antes da indução da anestesisca <br> Sala de espera do centro cirurgico</h1>
+            {% if  questionario01.questionario0101 %}
+                <div class="table-responsive fixed container-fluid mb-2 p-2">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            {#                            <th>Detalhes</th>#}
+                            {#                                <th>Deletar</th>#}
+                            <th>Atualizar</th>
+                            <th>Data da Cadastro</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            {#                            <td>#}
+                            {#                                <a href="{% url 'questionario0101.detail' pk=questionario01.questionario0101.id %}"><span#}
+                            {#                                        class="bi bi-person-lines-fill"></span></a>#}
+                            {#                            </td>#} {#                                <td>#}
+                            {#                                    <a href="{% url 'questionario0101.delete' pk=questionario01.questionario0101.id %}"><span#}
+                            {#                                            class="bi bi-trash-fill"></span></a>#}
+                            {#                                </td>#}
+                            <td>
+                                <a href="{% url 'questionario0101.update' pk=questionario01.questionario0101.id %}"><span
+                                        class="bi bi-arrow-repeat"></span></a>
+                            </td>
+                            <td>{{ questionario01.questionario0101.data_cadastro }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p>Nenum registro</p>
+                <a class="btn btn-secondary" href="{% url 'questionario0101pk.create' pk=questionario01.id %}"> <span
+                        class="bi bi-plus-circle"></span> Entrada </a>
+            {% endif %}
+        </div>
+        <div class="p-2 border col-md-4">
+            <h1> Antes da inicisão cirúrgica <br><br></h1>
+
+            {% if  questionario01.questionario0102 %}
+                <div class="table-responsive fixed container-fluid mb-2 p-2">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            {#                            <th>Detalhes</th>#}
+                            {#                                <th>Deletar</th>#}
+                            <th>Atualizar</th>
+                            <th>Data da Cadastro</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            {#                            <td>#}
+                            {#                                <a href="{% url 'questionario0102.detail' pk=questionario01.questionario0102.id %}"><span#}
+                            {#                                        class="bi bi-person-lines-fill"></span></a>#}
+                            {#                            </td>#} {#                                <td>#}
+                            {#                                    <a href="{% url 'questionario0102.delete' pk=questionario01.questionario0102.id %}"><span#}
+                            {#                                            class="bi bi-trash-fill"></span></a>#}
+                            {#                                </td>#}
+                            <td>
+                                <a href="{% url 'questionario0102.update' pk=questionario01.questionario0102.id %}"><span
+                                        class="bi bi-arrow-repeat"></span></a>
+                            </td>
+                            <td>{{ questionario01.questionario0102.data_cadastro }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p>Nenum registro</p>
+                <a class="btn btn-secondary" href="{% url 'questionario0102pk.create' pk=questionario01.id %}"> <span
+                        class="bi bi-plus-circle"></span> Pausa </a>
+            {% endif %}
+        </div>
+        <div class="p-2 border col-md-4">
+            <h1> Antes do paciente sair da sala <br> (Contagem de Materiais Abertos)</h1>
+            {% if  questionario01.questionario0103 %}
+                <div class="table-responsive fixed container-fluid mb-2 p-2">
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th>Detalhes</th>
+                            {#                                <th>Deletar</th>#}
+                            {#                            <th>Atualizar</th>#}
+                            <th>Data da Cadastro</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            {#                            <td>#}
+                            {#                                <a href="{% url 'questionario0103.detail' pk=questionario01.questionario0103.id %}"><span#}
+                            {#                                        class="bi bi-person-lines-fill"></span></a>#}
+                            {#                            </td>#} {#                                <td>#}
+                            {#                                    <a href="{% url 'questionario0103.delete' pk=questionario01.questionario0103.id %}"><span#}
+                            {#                                            class="bi bi-trash-fill"></span></a>#}
+                            {#                                </td>#}
+                            <td>
+                                <a href="{% url 'questionario0103.update' pk=questionario01.questionario0103.id %}"><span
+                                        class="bi bi-arrow-repeat"></span></a>
+                            </td>
+                            <td>{{ questionario01.questionario0103.data_cadastro }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <p>Nenum registro</p>
+                <a class="btn btn-secondary" href="{% url 'questionario0103pk.create' pk=questionario01.id %}"> <span
+                        class="bi bi-plus-circle"></span> Saída </a>
+            {% endif %}
+        </div>
+    </div>
+{% endblock main %}

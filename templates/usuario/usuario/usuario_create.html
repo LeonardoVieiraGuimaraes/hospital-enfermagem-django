@@ -1,0 +1,32 @@
+{% extends 'base/create.html' %}
+{% load crispy_forms_filters %}
+
+
+{% block form %}
+
+    {% block titulo %}
+        <h1>Cadastro de Usuário</h1>
+    {% endblock titulo %}
+
+    <div class="row g-3 container-fluid">
+        <div class="col-md-2">{{ form.cpf|as_crispy_field }}</div>
+        <div class="col-md-7">{{ form.nome_completo|as_crispy_field }}</div>
+        <div class="col-md-2">{{ form.data_nascimento|as_crispy_field }}</div>
+        <div class="col-md-1">{{ form.idade|as_crispy_field }}</div>
+        <div class="col-md-6">{{ form.nome_mae|as_crispy_field }}</div>
+        <div class="col-md-6">{{ form.nome_pai|as_crispy_field }}</div>
+        <div class="col-md-9">{{ form.reside_em|as_crispy_field }}</div>
+        <div class="col-md-3">{{ form.telefone|as_crispy_field }}</div>
+
+        <div class="col-md-6">{{ form.data_cadastro|as_crispy_field }}</div>
+        <div class="col-md-6">{{ form.atualizado|as_crispy_field }}</div>
+     
+
+    </div>
+
+{% endblock form %}
+
+{% block adicionar_button %}
+    {% include "base/button/button_create_usuario.html" %}
+{% endblock adicionar_button %}
+

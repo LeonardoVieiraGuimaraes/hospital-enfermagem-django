@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+
+
+{% for i in pacientes  %}
+{{ i }}
+{% endfor %}
+
+{{ paciente.questionario01.value}}
+
+
+{% if paciente.questionario01 %}
+    
+{% endif %}
+
+    {{ paciente.questionario01_set.id }}
+    {{ paciente.pk }}
+    {{ paciente.atualizado }}
+     {{ paciente.data_cadastro }}
+    {{ paciente.questionario01 }}
+
+    {{ questionario01 }}
+    {{ paciente. }}
+
+<form method="post">
+
+    {% csrf_token %}
+    <p>Are you sure you want to delete "{{ questionario01.paciente }}"?</p>
+
+    <input type="submit" value="Confirm">
+</form>
+
+{% endblock main %}

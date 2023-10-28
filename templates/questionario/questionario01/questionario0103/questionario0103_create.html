@@ -1,0 +1,120 @@
+{% extends "base/base.html" %}{% load crispy_forms_tags %}
+{% block main %}
+    <h1>ANTES DO PACIENTE SAIR DA SALA (CONTAGEM DE MATERIAIS ABERTOS)</h1>
+    <form action="" method="post">
+        {% csrf_token %} {#        {{ form | crispy }}#}
+        <div class="col-md-3">{{ form.cirurgia_segura|as_crispy_field }}</div>
+        <div class="row g-3 container-fluid p-3 mt-3 mb-3">
+            <div class="table-responsive fixed container-fluid mb-2 p-2">
+                <table class="table table-bordered">
+                    <caption>-</caption>
+                    <thead>
+                    <tr>
+                        <th scope="col"></th>
+                        <th scope="col">
+                            Instrumentais
+                        </th>
+                        <th scope="col">
+                            Compressas
+                        </th>
+                        <th scope="col">
+                            Agulhas
+                        </th>
+                        <th scope="col">
+                            Lâmina de bisturi
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th scope="row">
+                            Antes
+                        </th>
+                        <td>
+                            {{ form.instrumentais_antes|as_crispy_field }}
+                        </td>
+                        <td>
+                            {{ form.compressas_antes|as_crispy_field }}
+                        </td>
+                        <td>
+                            {{ form.agulhas_antes|as_crispy_field }}
+                        </td>
+                        <td>
+                            {{ form.lamina_bisturi_antes|as_crispy_field }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row">
+                            Depois
+                        </th>
+                        <td>
+                            {{ form.instrumentais_depois|as_crispy_field }}
+                        </td>
+                        <td>
+                            {{ form.compressas_depois|as_crispy_field }}
+                        </td>
+                        <td>
+                            {{ form.agulhas_depois|as_crispy_field }}
+                        </td>
+                        <td>
+                            {{ form.lamina_bisturi_depois|as_crispy_field }}
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-3">
+                {{ form.cirurgia_realizada|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.registro_completo_p_p_l_p|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.houve_algum_p_m_e_i|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.peca_patologica|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.amostra_cultura|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.citologia_oncotica|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.amostra_lcr|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.alta_confirmada|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.observacoes|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.cirurgiao|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.anestesista|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.enfermeiro|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.circulante|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.data_cadastro|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.atualizado|as_crispy_field }}
+            </div>
+        </div>
+        <div class="fixed container-fluid mt-2 mb-2 p-3">
+            <ul class="list-inline text-right">
+                <li class="list-inline-item">
+                    <button type="submit" class="btn btn-secondary">Salvar</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+{% endblock main %}

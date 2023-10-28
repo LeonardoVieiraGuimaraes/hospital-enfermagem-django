@@ -1,0 +1,50 @@
+{% extends 'base/list.html' %}
+
+{% block adicionar_button %}
+    <a class="btn btn-secondary" href="{% url 'questionario02.list' %}">
+        <span class="bi bi-list"></span> Lista de Tratamento Quimioterápico
+    </a>
+
+    <a class="btn btn-secondary" href="{% url 'questionario02.create' %}">
+        <span class="bi bi-plus-circle"></span> Novo Tratamento Quimioterápico
+    </a>
+
+{% endblock adicionar_button %}
+
+{% block table %}
+    <thead>
+    <tr>
+        <th>Detalhes</th>
+        {#        <th>Deletar</th>#}
+        <th>Prontuário</th>
+        <th>Paciente</th>
+        {#        <th>Cirurgia Proposta</th>#}
+        {#        <th>Sala de Cirurgia</th>#}
+        {#        <th>Data da Cirurgia</th>#}
+        <th>Data da Cadastro</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for questionario02 in questionarios02 %}
+        <tr>
+            <td>
+                <a
+                        href="{% url 'questionario02.detail' pk=questionario02.id %}"
+                ><span class="bi bi-person-lines-fill"></span
+                ></a>
+            </td>
+            {#            <td>#}
+            {#                <a href=""><span class="bi bi-trash-fill"></span></a>#}
+            {#            </td>#}
+            <td>{{ questionario02.paciente.prontuario }}</td>
+            <td>{{ questionario02.paciente.usuario.nome_completo }}</td>
+            {#            <td>{{ questionario01.cirurgia_proposta }}</td>#}
+            {#            <td>{{ questionario01.sala_cirurgica }}</td>#}
+            {#            <td>{{ questionario01.data_cirurgia }}</td>#}
+            <td>{{ questionario02.data_cadastro }}</td>
+        </tr>
+    {% empty %}
+        <p>Nenum registro</p>
+    {% endfor %}
+    </tbody>
+{% endblock table %}

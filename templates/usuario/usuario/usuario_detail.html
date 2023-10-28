@@ -1,0 +1,183 @@
+{% extends 'base/base.html' %}
+{% load crispy_forms_tags %}
+{% block main %}
+    {% block titulo %}
+        <h1>Detalhes de Usuário</h1>
+    {% endblock titulo %}
+    <div class="row g-3 container-fluid">
+        <div class="col-md-2">
+
+            <label for="id_cpf" class="form-label requiredField">
+                CPF
+            </label>
+
+            <input
+                    type="text"
+                    name="cpf"
+                    class="textinput textInput form-control"
+                    required=""
+                    id="id_cpf"
+                    placeholder="{{ usuario.cpf }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-7">
+
+            <label for="id_nome_completo" class="form-label requiredField">
+                Nome Completo
+            </label>
+
+            <input
+                    type="text"
+                    name="nome_completo"
+                    class="textinput textInput form-control"
+                    required=""
+                    id="id_nome_completo"
+                    placeholder="{{ usuario.nome_completo }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-2">
+
+            <label for="id_data_nascimento" class="form-label requiredField">
+                Data de Nascimento
+            </label>
+
+            <input
+                    type="text"
+                    name="data_nascimento"
+                    class="dateinput form-control"
+                    required=""
+                    id="id_data_nascimento"
+                    placeholder="{{ usuario.data_nascimento }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-1">
+
+            <label for="id_idade" class="form-label requiredField">
+                Idade
+            </label>
+
+            <input
+                    type="number"
+                    name="idade"
+                    class="numberinput form-control"
+                    required=""
+                    id="id_idade"
+                    placeholder="{{ usuario.idade }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-6">
+
+            <label for="id_nome_mae" class="form-label requiredField">
+                Nome da Mãe
+            </label>
+
+            <input
+                    type="text"
+                    name="nome_mae"
+                    class="textinput textInput form-control"
+                    required=""
+                    id="id_nome_mae"
+                    placeholder="{{ usuario.nome_mae }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-6">
+
+            <label for="id_nome_pai" class="form-label"> Nome do Pai </label>
+
+            <input
+                    type="text"
+                    name="nome_pai"
+                    class="textinput textInput form-control"
+                    id="id_nome_pai"
+                    placeholder="{{ usuario.nome_pai }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-9">
+
+            <label for="id_reside_em" class="form-label requiredField">
+                Endereço
+            </label>
+
+            <input
+                    type="text"
+                    name="reside_em"
+                    class="textinput textInput form-control"
+                    required=""
+                    id="id_reside_em"
+                    placeholder="{{ usuario.reside_em }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-3">
+
+            <label for="id_telefone" class="form-label requiredField">
+                Telefone
+            </label>
+
+            <input
+                    type="text"
+                    name="telefone"
+                    class="textinput textInput form-control"
+                    required=""
+                    id="id_telefone"
+                    placeholder="{{ usuario.telefone }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-6">
+
+            <label for="id_data_cadastro" class="form-label requiredField">
+                Data cadastro
+            </label>
+
+            <input
+                    type="text"
+                    name="data_cadastro"
+
+                    class="dateinput form-control"
+                    required=""
+                    id="id_data_cadastro"
+                    placeholder="{{ usuario.data_cadastro }}"
+                    readonly/>
+
+        </div>
+        <div class="col-md-6">
+
+            <label for="id_atualizado" class="form-label requiredField">
+                Atualizado
+            </label>
+
+            <input
+                    type="text"
+                    name="atualizado"
+                    class="dateinput form-control"
+                    required=""
+                    id="id_atualizado"
+                    placeholder="{{ usuario.atualizado }}"
+                    readonly/>
+
+        </div>
+    </div>
+
+    <div class="fixed container-fluid mt-4 mb-4">
+        <ul class="list-inline text-right">
+            <li class="list-inline-item">
+                {% include "base/button/button_create_usuario.html" %}
+                {% include "base/button/button_update_usuario.html" %}
+                {% if usuario.paciente %}
+                    {% include "base/button/button_detail_paciente.html" %}
+                {% else %}
+                    {% include "base/button/button_create_pacientepk.html" %}
+                {% endif %}
+
+            </li>
+        </ul>
+    </div>
+
+{% endblock main %}

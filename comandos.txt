@@ -1,0 +1,18 @@
+django-admin startproject nome_do_projeto Criar Projeto
+ 
+python manage.py startapp nome_da_app Criar Aplicação
+
+python mananage.py makemigrations Criar Migrações
+
+
+python manage.py migrate Executar Migrações  
+
+
+python manage.py runserver Executar Servidor de Desenvolvimento
+
+python manage.py flush  Limpar Banco de Dados
+
+
+python manage.py dbshell Abrir Shell do Banco de Dados Configurado
+
+python manage.py inspectdb > nome_da_app.models.py  Mapear BD existente para o projeto Django

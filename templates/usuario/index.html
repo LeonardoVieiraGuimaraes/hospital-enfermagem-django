@@ -1,0 +1,16 @@
+{% extends 'main/../base/base.html' %}
+{% load static %}
+
+{% block main %}
+
+    <form action="" method="GET">
+
+        <input type="text" name="nome_completo" id="id_nome_completo" value="{{ request.GET.nome_completo }} ">
+
+        <button type="submit">Pesqusiar</button>
+        <button type="reset">Limpar</button>
+
+
+    </form>
+
+{% endblock main %}

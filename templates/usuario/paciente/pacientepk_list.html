@@ -1,0 +1,41 @@
+{% extends 'base/list.html' %}
+
+{% block adicionar_button %}S
+
+{% endblock adicionar_button %}
+
+{% block table %}
+    <thead>
+    <tr>
+        <th>Detalhes</th>
+        {#        <th>Excluir</th>#}
+        <th>Prontuário</th>
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>Data do Cadastro</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for paciente in pacientes %}
+        <tr>
+            <td>
+                <a href="{% url 'paciente.detail' pk=paciente.id %}"
+                ><span class="bi bi-person-lines-fill"></span
+                ></a>
+            </td>
+            {#            <td>#}
+            {#                <a href="{% url 'paciente.delete' pk=paciente.id %}"#}
+            {#                ><span class="bi bi-trash-fill"></span#}
+            {#                ></a>#}
+            {#            </td>#}
+            <td>{{ paciente.prontuario }}</td>
+            <td>{{ paciente.usuario.cpf }}</td>
+            <td>{{ paciente.usuario.nome_completo }}</td>
+
+            <td>{{ paciente.data_cadastro }}</td>
+        </tr>
+    {% empty %}
+        <p>Nenum registro</p>
+    {% endfor %}
+    </tbody>
+{% endblock table %}

@@ -1,0 +1,1531 @@
+{% extends "base/base.html" %}{% load crispy_forms_tags %}
+{% block main %}
+
+    <div class="row g-3 container-fluid p-3 mt-3 mb-3">
+    <div class="col-md-2">
+        <label for="id_prontuario" class="form-label"> Paciente </label> <input type="text"
+            name="prontuario"
+            class="textinput textInput form-control"
+            disabled
+            id="id_prontuario"
+            placeholder="{{ questionario0101.cirurgia_segura.paciente.prontuario }}"
+            readonly/>
+    </div>
+    <div class="col-md-6">
+        <label for="id_nome_completo" class="form-label"> Nome Completo </label> <input type="text"
+            name="nome_completo"
+            class="textinput textInput form-control"
+            disabled
+            id="id_nome_completo"
+            placeholder="{{ questionario0101.cirurgia_segura.paciente.usuario.nome_completo }}"
+            readonly/>
+    </div>
+
+    <div class="col-md-3">
+        <label for="id_id_pulseira_identificacao" class="form-label"> Pulseira de identificação: </label>
+        <input type="text"
+                name="pulseira_identificacao"
+                class="textinput textInput form-control"
+                disabled
+                id="id_pulseira_identificacao"
+                placeholder="{{ questionario0101.pulseira_identificacao }}"
+                readonly/>
+    </div>
+
+
+    <div class="row g-3 container-fluid p-3 mt-3 mb-3">
+        <div class="col-md-3">
+            <div id="div_id_pulseira_identificacao" class="mb-3">
+                <label class="form-label requiredField"> Pulseira de identificação: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="pulseira_identificacao"
+                                value="Sim"
+                                id="id_pulseira_identificacao_0"
+                                required=""
+                                checked=""> <label for="id_pulseira_identificacao_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="pulseira_identificacao"
+                                value="Não"
+                                id="id_pulseira_identificacao_1"
+                                required=""> <label for="id_pulseira_identificacao_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_prontuario_completo" class="mb-3">
+                <label class="form-label requiredField"> Prontuário Completo: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="prontuario_completo"
+                                value="Sim"
+                                id="id_prontuario_completo_0"
+                                required=""
+                                checked=""> <label for="id_prontuario_completo_0" class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="prontuario_completo"
+                                value="Não"
+                                id="id_prontuario_completo_1"
+                                required=""> <label for="id_prontuario_completo_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_prontuario_completo_se_nao" class="mb-3">
+                <label for="id_prontuario_completo_se_nao"
+                        class="form-label requiredField"> Quais documentos faltam: </label> <input type="text"
+                    name="prontuario_completo_se_nao"
+                    value="afaf"
+                    class="textinput form-control"
+                    required=""
+                    id="id_prontuario_completo_se_nao">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_possui_dispositivos" class="mb-3">
+                <label class="form-label requiredField"> Possui dispositivos: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="possui_dispositivos"
+                                value="Sim"
+                                id="id_possui_dispositivos_0"
+                                required=""
+                                checked=""> <label for="id_possui_dispositivos_0" class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="possui_dispositivos"
+                                value="Não"
+                                id="id_possui_dispositivos_1"
+                                required=""> <label for="id_possui_dispositivos_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_possui_dispositivos_se_sim" class="mb-3">
+                <label for="id_possui_dispositivos_se_sim" class="form-label requiredField"> Quais: </label>
+                <input type="text"
+                        name="possui_dispositivos_se_sim"
+                        value="afafa"
+                        class="textinput form-control"
+                        required=""
+                        id="id_possui_dispositivos_se_sim">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_procedimento_confirmado" class="mb-3">
+                <label class="form-label requiredField"> Procedimento confirmado </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="procedimento_confirmado"
+                                value="Sim"
+                                id="id_procedimento_confirmado_0"
+                                required=""
+                                checked=""> <label for="id_procedimento_confirmado_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="procedimento_confirmado"
+                                value="Não"
+                                id="id_procedimento_confirmado_1"
+                                required=""> <label for="id_procedimento_confirmado_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_termo_consentimento_c_a" class="mb-3">
+                <label class="form-label requiredField"> Termo de consentimento cirúrgico e anestésico: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="termo_consentimento_c_a"
+                                value="Sim"
+                                id="id_termo_consentimento_c_a_0"
+                                required=""
+                                checked=""> <label for="id_termo_consentimento_c_a_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="termo_consentimento_c_a"
+                                value="Não"
+                                id="id_termo_consentimento_c_a_1"
+                                required=""> <label for="id_termo_consentimento_c_a_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_exames_laborat_i_d" class="mb-3">
+                <label class="form-label requiredField"> Exame: Laborat. Imagens disponível: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="exames_laborat_i_d"
+                                value="Sim"
+                                id="id_exames_laborat_i_d_0"
+                                required=""> <label for="id_exames_laborat_i_d_0" class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="exames_laborat_i_d"
+                                value="Não"
+                                id="id_exames_laborat_i_d_1"
+                                required=""
+                                checked=""> <label for="id_exames_laborat_i_d_1" class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_risco_perda_s" class="mb-3">
+                <label class="form-label requiredField"> Risco de perda sanguínea + 500ml: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="risco_perda_s"
+                                value="Sim"
+                                id="id_risco_perda_s_0"
+                                required=""> <label for="id_risco_perda_s_0" class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="risco_perda_s"
+                                value="Não"
+                                id="id_risco_perda_s_1"
+                                required=""
+                                checked=""> <label for="id_risco_perda_s_1" class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_resserva_hemoderivados" class="mb-3">
+                <label class="form-label requiredField"> Reserva de homoderivados: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="resserva_hemoderivados"
+                                value="Sim"
+                                id="id_resserva_hemoderivados_0"
+                                required=""> <label for="id_resserva_hemoderivados_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="resserva_hemoderivados"
+                                value="Não"
+                                id="id_resserva_hemoderivados_1"
+                                required=""
+                                checked=""> <label for="id_resserva_hemoderivados_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_resserva_CTI" class="mb-3">
+                <label class="form-label requiredField"> Reserva de CTI: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="resserva_CTI"
+                                value="Sim"
+                                id="id_resserva_CTI_0"
+                                required=""> <label for="id_resserva_CTI_0" class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="resserva_CTI"
+                                value="Não"
+                                id="id_resserva_CTI_1"
+                                required=""
+                                checked=""> <label for="id_resserva_CTI_1" class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_sitio_cirurgico_d" class="mb-3">
+                <label class="form-label requiredField"> Sitio cirúrgico demarcado: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="sitio_cirurgico_d"
+                                value="Sim"
+                                id="id_sitio_cirurgico_d_0"
+                                required=""> <label for="id_sitio_cirurgico_d_0" class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="sitio_cirurgico_d"
+                                value="Não"
+                                id="id_sitio_cirurgico_d_1"
+                                required=""
+                                checked=""> <label for="id_sitio_cirurgico_d_1" class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_jejum" class="mb-3">
+                <label class="form-label requiredField"> Jejum: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="jejum"
+                                value="Sim"
+                                id="id_jejum_0"
+                                required=""> <label for="id_jejum_0" class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="jejum"
+                                value="Não"
+                                id="id_jejum_1"
+                                required=""
+                                checked=""> <label for="id_jejum_1" class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_jejum_se_sim" class="mb-3">
+                <label for="id_jejum_se_sim" class="form-label"> Se sim, hora: </label> <input type="time"
+                    name="jejum_se_sim"
+                    value="1900-01-01 10:59:00"
+                    class="datetimeinput form-control"
+                    id="id_jejum_se_sim">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_alergia_conhecida" class="mb-3">
+                <label class="form-label requiredField"> Alergia Conhecia: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="alergia_conhecida"
+                                value="Sim"
+                                id="id_alergia_conhecida_0"
+                                required=""> <label for="id_alergia_conhecida_0" class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="alergia_conhecida"
+                                value="Não"
+                                id="id_alergia_conhecida_1"
+                                required=""
+                                checked=""> <label for="id_alergia_conhecida_1" class="form-check-label"> Não </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="alergia_conhecida"
+                                value="NA"
+                                id="id_alergia_conhecida_2"
+                                required=""> <label for="id_alergia_conhecida_2" class="form-check-label"> NA </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_alergia_conhecida_se_sim" class="mb-3">
+                <label for="id_alergia_conhecida_se_sim" class="form-label"> Se sim, qual? </label> <input type="text"
+                    name="alergia_conhecida_se_sim"
+                    value="afafa"
+                    class="textinput form-control"
+                    id="id_alergia_conhecida_se_sim">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_triconomia_realizada" class="mb-3">
+                <label class="form-label requiredField"> Tricotomia: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="triconomia_realizada"
+                                value="Sim"
+                                id="id_triconomia_realizada_0"
+                                required=""> <label for="id_triconomia_realizada_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="triconomia_realizada"
+                                value="Não"
+                                id="id_triconomia_realizada_1"
+                                required=""
+                                checked=""> <label for="id_triconomia_realizada_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="triconomia_realizada"
+                                value="NA"
+                                id="id_triconomia_realizada_2"
+                                required=""> <label for="id_triconomia_realizada_2"
+                            class="form-check-label"> NA </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_triconomia_realizada_se_sim_01" class="mb-3">
+                <label for="id_triconomia_realizada_se_sim_01" class="form-label"> Se sim, hora: </label>
+                <input type="time"
+                        name="triconomia_realizada_se_sim_01"
+                        value="1900-01-01 10:00:00"
+                        class="datetimeinput form-control"
+                        id="id_triconomia_realizada_se_sim_01">
+            </div>
+            <div id="div_id_triconomia_realizada_se_sim_02" class="mb-3">
+                <label class="form-label requiredField"> Qual meio: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="triconomia_realizada_se_sim_02"
+                                value="Aparador"
+                                id="id_triconomia_realizada_se_sim_02_0"
+                                required=""
+                                checked=""> <label for="id_triconomia_realizada_se_sim_02_0"
+                            class="form-check-label"> Aparador </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="triconomia_realizada_se_sim_02"
+                                value="Barbeador"
+                                id="id_triconomia_realizada_se_sim_02_1"
+                                required=""> <label for="id_triconomia_realizada_se_sim_02_1"
+                            class="form-check-label"> Barbeador </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_triconomia_realizada_se_sim_03" class="mb-3">
+                <label class="form-label requiredField"> Local: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="triconomia_realizada_se_sim_03"
+                                value="Bloco cirúrgico"
+                                id="id_triconomia_realizada_se_sim_03_0"
+                                required=""
+                                checked=""> <label for="id_triconomia_realizada_se_sim_03_0"
+                            class="form-check-label"> Bloco cirúrgico </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="triconomia_realizada_se_sim_03"
+                                value=" Clinica"
+                                id="id_triconomia_realizada_se_sim_03_1"
+                                required=""> <label for="id_triconomia_realizada_se_sim_03_1"
+                            class="form-check-label"> Clinica </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_realizou_quimeoterapia" class="mb-3">
+                <label class="form-label requiredField"> Relizou Quimeoterapia: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="realizou_quimeoterapia"
+                                value="Sim"
+                                id="id_realizou_quimeoterapia_0"
+                                required=""> <label for="id_realizou_quimeoterapia_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="realizou_quimeoterapia"
+                                value="Não"
+                                id="id_realizou_quimeoterapia_1"
+                                required=""
+                                checked=""> <label for="id_realizou_quimeoterapia_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_realizou_quimeoterapia_se_sim_01" class="mb-3">
+                <label for="id_realizou_quimeoterapia_se_sim_01" class="form-label"> Quantas Sessões: </label> <input
+                    type="number"
+                    name="realizou_quimeoterapia_se_sim_01"
+                    value="10"
+                    class="numberinput form-control"
+                    id="id_realizou_quimeoterapia_se_sim_01">
+            </div>
+            <div id="div_id_realizou_quimeoterapia_se_sim_02" class="mb-3">
+                <label for="id_realizou_quimeoterapia_se_sim_02" class="form-label"> Ultima Sessão: </label>
+                <input type="date"
+                        name="realizou_quimeoterapia_se_sim_02"
+                        value="2023-02-24"
+                        readonly="readonly"
+                        class="dateinput form-control"
+                        id="id_realizou_quimeoterapia_se_sim_02">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_realizou_radioterapia" class="mb-3">
+                <label class="form-label requiredField"> Relizou Radioterapia: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="realizou_radioterapia"
+                                value="Sim"
+                                id="id_realizou_radioterapia_0"
+                                required=""
+                                checked=""> <label for="id_realizou_radioterapia_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="realizou_radioterapia"
+                                value="Não"
+                                id="id_realizou_radioterapia_1"
+                                required=""> <label for="id_realizou_radioterapia_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_realizou_radioterapia_se_sim_01" class="mb-3">
+                <label for="id_realizou_radioterapia_se_sim_01" class="form-label"> Quantas Sessões: </label> <input
+                    type="number"
+                    name="realizou_radioterapia_se_sim_01"
+                    value="10"
+                    class="numberinput form-control"
+                    id="id_realizou_radioterapia_se_sim_01">
+            </div>
+            <div id="div_id_realizou_radioterapia_se_sim_02" class="mb-3">
+                <label for="id_realizou_radioterapia_se_sim_02" class="form-label"> Ultima Sessão: </label>
+                <input type="date"
+                        name="realizou_radioterapia_se_sim_02"
+                        value="2023-02-24"
+                        readonly="readonly"
+                        class="dateinput form-control"
+                        id="id_realizou_radioterapia_se_sim_02">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_realizou_hemodialise" class="mb-3">
+                <label class="form-label requiredField"> Relizou Radioterapia: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="realizou_hemodialise"
+                                value="Sim"
+                                id="id_realizou_hemodialise_0"
+                                required=""
+                                checked=""> <label for="id_realizou_hemodialise_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="realizou_hemodialise"
+                                value="Não"
+                                id="id_realizou_hemodialise_1"
+                                required=""> <label for="id_realizou_hemodialise_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_realizou_hemodialise_se_sim_01" class="mb-3">
+                <label for="id_realizou_hemodialise_se_sim_01" class="form-label"> Quantas Sessões: </label>
+                <input type="number"
+                        name="realizou_hemodialise_se_sim_01"
+                        value="10"
+                        class="numberinput form-control"
+                        id="id_realizou_hemodialise_se_sim_01">
+            </div>
+            <div id="div_id_realizou_hemodialise_se_sim_02" class="mb-3">
+                <label for="id_realizou_hemodialise_se_sim_02" class="form-label"> Ultima Sessão: </label>
+                <input type="date"
+                        name="realizou_hemodialise_se_sim_02"
+                        value="2023-02-24"
+                        readonly="readonly"
+                        class="dateinput form-control"
+                        id="id_realizou_hemodialise_se_sim_02">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_realizou_transplante_o" class="mb-3">
+                <label class="form-label requiredField"> Realizou transplante de órgão: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="realizou_transplante_o"
+                                value="Sim"
+                                id="id_realizou_transplante_o_0"
+                                required=""
+                                checked=""> <label for="id_realizou_transplante_o_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="realizou_transplante_o"
+                                value="Não"
+                                id="id_realizou_transplante_o_1"
+                                required=""> <label for="id_realizou_transplante_o_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_realizou_transplante_o_se_sim" class="mb-3">
+                <label for="id_realizou_transplante_o_se_sim" class="form-label"> Qual ano: </label>
+                <input type="number"
+                        name="realizou_transplante_o_se_sim"
+                        value="10"
+                        class="numberinput form-control"
+                        id="id_realizou_transplante_o_se_sim">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_verificacao_anestesica_m_v_m_e_a" class="mb-3">
+                <label class="form-label requiredField"> Verificação Anestésica: Materiais VAD, Medicações e Equipamentos adequados:<span
+                        class="asteriskField">*</span> </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="verificacao_anestesica_m_v_m_e_a"
+                                value="Sim"
+                                id="id_verificacao_anestesica_m_v_m_e_a_0"
+                                required=""
+                                checked=""> <label for="id_verificacao_anestesica_m_v_m_e_a_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="verificacao_anestesica_m_v_m_e_a"
+                                value="Não"
+                                id="id_verificacao_anestesica_m_v_m_e_a_1"
+                                required=""> <label for="id_verificacao_anestesica_m_v_m_e_a_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+            <div id="div_id_verificacao_anestesica_m_v_m_e_a_se_nao" class="mb-3">
+                <label for="id_verificacao_anestesica_m_v_m_e_a_se_nao" class="form-label"> Se não, qual ano: </label>
+                <input type="number"
+                        name="verificacao_anestesica_m_v_m_e_a_se_nao"
+                        value="2022"
+                        class="numberinput form-control"
+                        id="id_verificacao_anestesica_m_v_m_e_a_se_nao">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_vias_aereas_d_r_a" class="mb-3">
+                <label class="form-label requiredField"> Vias Aéreas difíceis ou risco de Aspiração: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="vias_aereas_d_r_a"
+                                value="Sim"
+                                id="id_vias_aereas_d_r_a_0"
+                                required=""> <label for="id_vias_aereas_d_r_a_0" class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="vias_aereas_d_r_a"
+                                value="Não"
+                                id="id_vias_aereas_d_r_a_1"
+                                required=""
+                                checked=""> <label for="id_vias_aereas_d_r_a_1" class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_tempo_previsto_cirurgia" class="mb-3">
+                <label class="form-label requiredField"> Tempo previsto para cirurgia: </label>
+                <div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="tempo_previsto_cirurgia"
+                                value="Sim"
+                                id="id_tempo_previsto_cirurgia_0"
+                                required=""
+                                checked=""> <label for="id_tempo_previsto_cirurgia_0"
+                            class="form-check-label"> Sim </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio"
+                                class="form-check-input"
+                                name="tempo_previsto_cirurgia"
+                                value="Não"
+                                id="id_tempo_previsto_cirurgia_1"
+                                required=""> <label for="id_tempo_previsto_cirurgia_1"
+                            class="form-check-label"> Não </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_data_cadastro" class="mb-3">
+                <label for="id_data_cadastro" class="form-label requiredField"> Data cadastro </label>
+                <input type="date"
+                        name="data_cadastro"
+                        value="2023-02-24"
+                        readonly="readonly"
+                        class="dateinput form-control"
+                        required=""
+                        id="id_data_cadastro">
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div id="div_id_atualizado" class="mb-3">
+                <label for="id_atualizado" class="form-label requiredField"> Atualizado </label> <input type="date"
+                    name="atualizado"
+                    value="2023-02-24"
+                    readonly="readonly"
+                    class="dateinput form-control"
+                    required=""
+                    id="id_atualizado">
+            </div>
+        </div>
+    </div>
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_pulseira_identificacao" class="mb-3">#}
+    {#                <label class="form-label requiredField">Pulseira de identificação:</label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="pulseira_identificacao"#}
+    {#                                value="S"#}
+    {#                                id="id_pulseira_identificacao_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_pulseira_identificacao_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="pulseira_identificacao"#}
+    {#                                value="N"#}
+    {#                                id="id_pulseira_identificacao_1"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_pulseira_identificacao_1"#}
+    {#                            class="form-check-label">Não</label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_prontuario_completo" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Prontuário Completo: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="prontuario_completo"#}
+    {#                                value="S"#}
+    {#                                id="id_prontuario_completo_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_prontuario_completo_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="prontuario_completo"#}
+    {#                                value="N"#}
+    {#                                id="id_prontuario_completo_1"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_prontuario_completo_1"#}
+    {#                            class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_prontuario_completo_se_nao" class="mb-3">#}
+    {#                <label for="id_prontuario_completo_se_nao"#}
+    {#                        class="form-label requiredField">Quais documentos faltam: </label> <input type="text"#}
+    {#                    name="prontuario_completo_se_nao"#}
+    {#                    value="fsfs"#}
+    {#                    class="textinput form-control"#}
+    {#                    disabled#}
+    {#                    id="id_prontuario_completo_se_nao">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_possui_dispositivos" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Possui dispositivos: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="possui_dispositivos"#}
+    {#                                value="S"#}
+    {#                                id="id_possui_dispositivos_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_possui_dispositivos_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="possui_dispositivos"#}
+    {#                                value="N"#}
+    {#                                id="id_possui_dispositivos_1"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_possui_dispositivos_1"#}
+    {#                            class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_possui_dispositivos_se_sim" class="mb-3">#}
+    {#                <label for="id_possui_dispositivos_se_sim" class="form-label requiredField"> Quais: </label>#}
+    {#                <input type="text"#}
+    {#                        name="possui_dispositivos_se_sim"#}
+    {#                        value="fsfsf"#}
+    {#                        class="textinput form-control"#}
+    {#                        disabled#}
+    {#                        id="id_possui_dispositivos_se_sim">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_procedimento_confirmado" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Procedimento confirmado </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="procedimento_confirmado"#}
+    {#                                value="S"#}
+    {#                                id="id_procedimento_confirmado_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                        checked=#}
+    {#                                    {% endif %}#}
+    {#                                {% endif %}> <label for="id_procedimento_confirmado_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="procedimento_confirmado"#}
+    {#                                value="N"#}
+    {#                                id="id_procedimento_confirmado_1"#}
+    {#                                disabled> <label for="id_procedimento_confirmado_1"#}
+    {#                            class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_termo_consentimento_c_a" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Termo de consentimento cirúrgico e anestésico: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="termo_consentimento_c_a"#}
+    {#                                value="S"#}
+    {#                                id="id_termo_consentimento_c_a_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_termo_consentimento_c_a_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="termo_consentimento_c_a"#}
+    {#                                value="N"#}
+    {#                                id="id_termo_consentimento_c_a_1"#}
+    {#                                disabled> <label for="id_termo_consentimento_c_a_1"#}
+    {#                            class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_exames_laborat_i_d" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Exame: Laborat. Imagens disponível: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="exames_laborat_i_d"#}
+    {#                                value="S"#}
+    {#                                id="id_exames_laborat_i_d_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_exames_laborat_i_d_0" class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="exames_laborat_i_d"#}
+    {#                                value="N"#}
+    {#                                id="id_exames_laborat_i_d_1"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_exames_laborat_i_d_1" class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_risco_perda_s" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Risco de perda sanguínea + 500ml: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="risco_perda_s"#}
+    {#                                value="S"#}
+    {#                                id="id_risco_perda_s_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_risco_perda_s_0" class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="risco_perda_s"#}
+    {#                                value="N"#}
+    {#                                id="id_risco_perda_s_1"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}>> <label for="id_risco_perda_s_1" class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_resserva_hemoderivados" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Reserva de homoderivados: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="resserva_hemoderivados"#}
+    {#                                value="S"#}
+    {#                                id="id_resserva_hemoderivados_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_resserva_hemoderivados_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="resserva_hemoderivados"#}
+    {#                                value="N"#}
+    {#                                id="id_resserva_hemoderivados_1"#}
+    {#                                disabled {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                            checked#}
+    {#                        {% endif %}>> <label for="id_resserva_hemoderivados_1" class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_resserva_CTI" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Reserva de CTI: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="resserva_CTI"#}
+    {#                                value="S"#}
+    {#                                id="id_resserva_CTI_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_resserva_CTI_0" class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="resserva_CTI"#}
+    {#                                value="N"#}
+    {#                                id="id_resserva_CTI_1"#}
+    {#                                disabled  {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                            checked#}
+    {#                        {% endif %}> <label for="id_resserva_CTI_1" class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_sitio_cirurgico_d" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Sitio cirúrgico demarcado: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="sitio_cirurgico_d"#}
+    {#                                value="S"#}
+    {#                                id="id_sitio_cirurgico_d_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_sitio_cirurgico_d_0" class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="sitio_cirurgico_d"#}
+    {#                                value="N"#}
+    {#                                id="id_sitio_cirurgico_d_1"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_sitio_cirurgico_d_1" class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_jejum" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Jejum: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio" class="form-check-input" name="jejum" value="S" id="id_jejum_0" disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_jejum_0" class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio" class="form-check-input" name="jejum" value="N" id="id_jejum_1" disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_jejum_1" class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_jejum_se_sim" class="mb-3">#}
+    {#                <label for="id_jejum_se_sim" class="form-label"> Se sim, hora: </label> <input type="time"#}
+    {#                    name="jejum_se_sim"#}
+    {#                    value="1900-01-01 06:24:00"#}
+    {#                    class="datetimeinput form-control"#}
+    {#                    id="id_jejum_se_sim">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_alergia_conhecida" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Alergia Conhecia: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="alergia_conhecida"#}
+    {#                                value="S"#}
+    {#                                id="id_alergia_conhecida_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_alergia_conhecida_0" class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="alergia_conhecida"#}
+    {#                                value="N"#}
+    {#                                id="id_alergia_conhecida_1"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_alergia_conhecida_1" class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="alergia_conhecida"#}
+    {#                                value="A"#}
+    {#                                id="id_alergia_conhecida_2"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'A' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_alergia_conhecida_2" class="form-check-label"> NA </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_alergia_conhecida_se_sim" class="mb-3">#}
+    {#                <label for="id_alergia_conhecida_se_sim" class="form-label"> Se sim, qual? </label> <input type="text"#}
+    {#                    name="alergia_conhecida_se_sim"#}
+    {#                    value="fafaf"#}
+    {#                    class="textinput form-control"#}
+    {#                    id="id_alergia_conhecida_se_sim">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_triconomia_realizada" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Tricotomia: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="triconomia_realizada"#}
+    {#                                value="S"#}
+    {#                                id="id_triconomia_realizada_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {##}
+    {#                                    checked#}
+    {##}
+    {#                                {% endif %}> <label for="id_triconomia_realizada_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="triconomia_realizada"#}
+    {#                                value="N"#}
+    {#                                id="id_triconomia_realizada_1"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'N' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_triconomia_realizada_1"#}
+    {#                            class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="triconomia_realizada"#}
+    {#                                value="A"#}
+    {#                                id="id_triconomia_realizada_2"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'A' %}#}
+    {#                                    checked#}
+    {#                                {% endif %}> <label for="id_triconomia_realizada_2"#}
+    {#                            class="form-check-label"> NA </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_triconomia_realizada_se_sim_01" class="mb-3">#}
+    {#                <label for="id_triconomia_realizada_se_sim_01" class="form-label"> Se sim, hora: </label>#}
+    {#                <input type="time"#}
+    {#                        name="triconomia_realizada_se_sim_01"#}
+    {#                        value="1900-01-01 06:24:00"#}
+    {#                        class="datetimeinput form-control"#}
+    {#                        id="id_triconomia_realizada_se_sim_01">#}
+    {#            </div>#}
+    {#            <div id="div_id_triconomia_realizada_se_sim_02" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Qual meio: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="triconomia_realizada_se_sim_02"#}
+    {#                                value="Aparador"#}
+    {#                                id="id_triconomia_realizada_se_sim_02_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                        checked=#}
+    {#                                    {% endif %}#}
+    {#                                {% endif %}> <label for="id_triconomia_realizada_se_sim_02_0"#}
+    {#                            class="form-check-label"> Aparador </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="triconomia_realizada_se_sim_02"#}
+    {#                                value="Barbeador"#}
+    {#                                id="id_triconomia_realizada_se_sim_02_1"#}
+    {#                                disabled> <label for="id_triconomia_realizada_se_sim_02_1"#}
+    {#                            class="form-check-label"> Barbeador </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_triconomia_realizada_se_sim_03" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Local: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="triconomia_realizada_se_sim_03"#}
+    {#                                value="Bloco cirúrgico"#}
+    {#                                id="id_triconomia_realizada_se_sim_03_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                        checked=#}
+    {#                                    {% endif %}#}
+    {#                                {% endif %}> <label for="id_triconomia_realizada_se_sim_03_0"#}
+    {#                            class="form-check-label"> Bloco cirúrgico </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="triconomia_realizada_se_sim_03"#}
+    {#                                value=" Clinica"#}
+    {#                                id="id_triconomia_realizada_se_sim_03_1"#}
+    {#                                disabled> <label for="id_triconomia_realizada_se_sim_03_1"#}
+    {#                            class="form-check-label"> Clinica </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_realizou_quimeoterapia" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Relizou Quimeoterapia: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="realizou_quimeoterapia"#}
+    {#                                value="S"#}
+    {#                                id="id_realizou_quimeoterapia_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                        checked=#}
+    {#                                    {% endif %}#}
+    {#                                {% endif %}> <label for="id_realizou_quimeoterapia_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="realizou_quimeoterapia"#}
+    {#                                value="N"#}
+    {#                                id="id_realizou_quimeoterapia_1"#}
+    {#                                disabled> <label for="id_realizou_quimeoterapia_1"#}
+    {#                            class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_realizou_quimeoterapia_se_sim_01" class="mb-3">#}
+    {#                <label for="id_realizou_quimeoterapia_se_sim_01" class="form-label"> Quantas Sessões: </label> <input#}
+    {#                    type="number"#}
+    {#                    name="realizou_quimeoterapia_se_sim_01"#}
+    {#                    value="10"#}
+    {#                    class="numberinput form-control"#}
+    {#                    id="id_realizou_quimeoterapia_se_sim_01">#}
+    {#            </div>#}
+    {#            <div id="div_id_realizou_quimeoterapia_se_sim_02" class="mb-3">#}
+    {#                <label for="id_realizou_quimeoterapia_se_sim_02" class="form-label"> Ultima Sessão: </label>#}
+    {#                <input type="date"#}
+    {#                        name="realizou_quimeoterapia_se_sim_02"#}
+    {#                        value="2023-02-24"#}
+    {#                        readonly="readonly"#}
+    {#                        class="dateinput form-control"#}
+    {#                        id="id_realizou_quimeoterapia_se_sim_02">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_realizou_radioterapia" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Relizou Radioterapia: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="realizou_radioterapia"#}
+    {#                                value="S"#}
+    {#                                id="id_realizou_radioterapia_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                        checked=#}
+    {#                                    {% endif %}#}
+    {#                                {% endif %}> <label for="id_realizou_radioterapia_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="realizou_radioterapia"#}
+    {#                                value="N"#}
+    {#                                id="id_realizou_radioterapia_1"#}
+    {#                                disabled> <label for="id_realizou_radioterapia_1" class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_realizou_radioterapia_se_sim_01" class="mb-3">#}
+    {#                <label for="id_realizou_radioterapia_se_sim_01" class="form-label"> Quantas Sessões: </label> <input#}
+    {#                    type="number"#}
+    {#                    name="realizou_radioterapia_se_sim_01"#}
+    {#                    value="10"#}
+    {#                    class="numberinput form-control"#}
+    {#                    id="id_realizou_radioterapia_se_sim_01">#}
+    {#            </div>#}
+    {#            <div id="div_id_realizou_radioterapia_se_sim_02" class="mb-3">#}
+    {#                <label for="id_realizou_radioterapia_se_sim_02" class="form-label"> Ultima Sessão: </label>#}
+    {#                <input type="date"#}
+    {#                        name="realizou_radioterapia_se_sim_02"#}
+    {#                        value="2023-02-24"#}
+    {#                        readonly="readonly"#}
+    {#                        class="dateinput form-control"#}
+    {#                        id="id_realizou_radioterapia_se_sim_02">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_realizou_hemodialise" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Relizou Radioterapia: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="realizou_hemodialise"#}
+    {#                                value="S"#}
+    {#                                id="id_realizou_hemodialise_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                        checked=#}
+    {#                                    {% endif %}#}
+    {#                                {% endif %}> <label for="id_realizou_hemodialise_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="realizou_hemodialise"#}
+    {#                                value="N"#}
+    {#                                id="id_realizou_hemodialise_1"#}
+    {#                                disabled> <label for="id_realizou_hemodialise_1" class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_realizou_hemodialise_se_sim_01" class="mb-3">#}
+    {#                <label for="id_realizou_hemodialise_se_sim_01" class="form-label"> Quantas Sessões: </label>#}
+    {#                <input type="number"#}
+    {#                        name="realizou_hemodialise_se_sim_01"#}
+    {#                        value="10"#}
+    {#                        class="numberinput form-control"#}
+    {#                        id="id_realizou_hemodialise_se_sim_01">#}
+    {#            </div>#}
+    {#            <div id="div_id_realizou_hemodialise_se_sim_02" class="mb-3">#}
+    {#                <label for="id_realizou_hemodialise_se_sim_02" class="form-label"> Ultima Sessão: </label>#}
+    {#                <input type="date"#}
+    {#                        name="realizou_hemodialise_se_sim_02"#}
+    {#                        value="2023-02-24"#}
+    {#                        readonly="readonly"#}
+    {#                        class="dateinput form-control"#}
+    {#                        id="id_realizou_hemodialise_se_sim_02">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_realizou_transplante_o" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Realizou transplante de órgão: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="realizou_transplante_o"#}
+    {#                                value="S"#}
+    {#                                id="id_realizou_transplante_o_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                        checked=#}
+    {#                                    {% endif %}#}
+    {#                                {% endif %}> <label for="id_realizou_transplante_o_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="realizou_transplante_o"#}
+    {#                                value="N"#}
+    {#                                id="id_realizou_transplante_o_1"#}
+    {#                                disabled> <label for="id_realizou_transplante_o_1"#}
+    {#                            class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_realizou_transplante_o_se_sim" class="mb-3">#}
+    {#                <label for="id_realizou_transplante_o_se_sim" class="form-label"> Qual ano: </label>#}
+    {#                <input type="number"#}
+    {#                        name="realizou_transplante_o_se_sim"#}
+    {#                        value="10"#}
+    {#                        class="numberinput form-control"#}
+    {#                        id="id_realizou_transplante_o_se_sim">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_verificacao_anestesica_m_v_m_e_a" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Verificação Anestésica: Materiais VAD, Medicações e Equipamentos adequados:<span#}
+    {#                        class="asteriskField">*</span> </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="verificacao_anestesica_m_v_m_e_a"#}
+    {#                                value="S"#}
+    {#                                id="id_verificacao_anestesica_m_v_m_e_a_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                        checked=#}
+    {#                                    {% endif %}#}
+    {#                                {% endif %}> <label for="id_verificacao_anestesica_m_v_m_e_a_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="verificacao_anestesica_m_v_m_e_a"#}
+    {#                                value="N"#}
+    {#                                id="id_verificacao_anestesica_m_v_m_e_a_1"#}
+    {#                                disabled> <label for="id_verificacao_anestesica_m_v_m_e_a_1"#}
+    {#                            class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#            <div id="div_id_verificacao_anestesica_m_v_m_e_a_se_nao" class="mb-3">#}
+    {#                <label for="id_verificacao_anestesica_m_v_m_e_a_se_nao" class="form-label"> Se não, qual ano: </label>#}
+    {#                <input type="number"#}
+    {#                        name="verificacao_anestesica_m_v_m_e_a_se_nao"#}
+    {#                        value="10"#}
+    {#                        class="numberinput form-control"#}
+    {#                        id="id_verificacao_anestesica_m_v_m_e_a_se_nao">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_vias_aereas_d_r_a" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Vias Aéreas difíceis ou risco de Aspiração: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="vias_aereas_d_r_a"#}
+    {#                                value="S"#}
+    {#                                id="id_vias_aereas_d_r_a_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                        checked=#}
+    {#                                    {% endif %}#}
+    {#                                {% endif %}> <label for="id_vias_aereas_d_r_a_0" class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="vias_aereas_d_r_a"#}
+    {#                                value="N"#}
+    {#                                id="id_vias_aereas_d_r_a_1"#}
+    {#                                disabled> <label for="id_vias_aereas_d_r_a_1" class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_tempo_previsto_cirurgia" class="mb-3">#}
+    {#                <label class="form-label requiredField"> Tempo previsto para cirurgia: </label>#}
+    {#                <div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="tempo_previsto_cirurgia"#}
+    {#                                value="S"#}
+    {#                                id="id_tempo_previsto_cirurgia_0"#}
+    {#                                disabled#}
+    {#                                {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                    {% if questionario0101.pulseira_identificacao == 'S' %}#}
+    {#                                        checked=#}
+    {#                                    {% endif %}#}
+    {#                                {% endif %}> <label for="id_tempo_previsto_cirurgia_0"#}
+    {#                            class="form-check-label"> Sim </label>#}
+    {#                    </div>#}
+    {#                    <div class="form-check">#}
+    {#                        <input type="radio"#}
+    {#                                class="form-check-input"#}
+    {#                                name="tempo_previsto_cirurgia"#}
+    {#                                value="N"#}
+    {#                                id="id_tempo_previsto_cirurgia_1"#}
+    {#                                disabled> <label for="id_tempo_previsto_cirurgia_1"#}
+    {#                            class="form-check-label"> Não </label>#}
+    {#                    </div>#}
+    {#                </div>#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_data_cadastro" class="mb-3">#}
+    {#                <label for="id_data_cadastro" class="form-label requiredField"> Data cadastro </label>#}
+    {#                <input type="date"#}
+    {#                        name="data_cadastro"#}
+    {#                        value="2023-02-24"#}
+    {#                        readonly="readonly"#}
+    {#                        class="dateinput form-control"#}
+    {#                        disabled#}
+    {#                        id="id_data_cadastro">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#        <div class="col-md-3">#}
+    {#            <div id="div_id_atualizado" class="mb-3">#}
+    {#                <label for="id_atualizado" class="form-label requiredField"> Atualizado </label> <input type="date"#}
+    {#                    name="atualizado"#}
+    {#                    value="2023-02-24"#}
+    {#                    readonly="readonly"#}
+    {#                    class="dateinput form-control"#}
+    {#                    disabled#}
+    {#                    id="id_atualizado">#}
+    {#            </div>#}
+    {#        </div>#}
+    {#    </div>#}
+{% endblock main %}

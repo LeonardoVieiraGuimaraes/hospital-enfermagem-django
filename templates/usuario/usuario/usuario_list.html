@@ -1,0 +1,39 @@
+{% extends 'base/list.html' %}
+
+{% block adicionar_button %}
+    {% include "base/button/button_list_usuario.html" %}
+    {% include "base/button/button_create_usuario.html" %}
+{% endblock adicionar_button %}
+
+{% block table %}
+    <thead>
+    <tr>
+        <th>Detalhes</th>
+        {#        <th>Detetar</th>#}
+        <th>CPF</th>
+        <th>Nome</th>
+        <th>Data de Cadastro</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for usuario in usuarios %}
+        <tr>
+            <td>
+                <a href="{% url 'usuario.detail' pk=usuario.id %}"
+                ><span class="bi bi-person-lines-fill"></span
+                ></a>
+            </td>
+            {#            <td>#}
+            {#                <a href="{% url 'usuario.delete' pk=usuario.id %}"#}
+            {#                ><span class="bi bi-trash-fill"></span#}
+            {#                ></a>#}
+            {#            </td>#}
+            <td>{{ usuario.cpf }}</td>
+            <td>{{ usuario.nome_completo }}</td>
+            <td>{{ usuario.data_cadastro }}</td>
+        </tr>
+    {% empty %}
+        <p>Nenum registro</p>
+    {% endfor %}
+    </tbody>
+{% endblock table %}

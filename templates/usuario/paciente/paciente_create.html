@@ -1,0 +1,25 @@
+{% extends 'base/create.html' %}
+{% load crispy_forms_tags %}
+{#{% load crispy_forms_filters %}#}
+
+
+
+{% block form %}
+    {% block titulo %}
+        <h1>Cadastrar de Paciente</h1>
+    {% endblock titulo %}
+
+    <div class="col-md-3">{{ form.usuario|as_crispy_field }}</div>
+    <div class="col-md-5">{{ form.prontuario|as_crispy_field }}</div>
+    <div class="col-md-2">{{ form.data_cadastro|as_crispy_field }}</div>
+    <div class="col-md-2">{{ form.atualizado|as_crispy_field }}</div>
+{% endblock form %}
+
+
+{% block adicionar_button %}
+    {% include "base/button/button_create_usuario.html" %}
+    {% include "base/button/button_create_paciente.html" %}
+{% endblock adicionar_button %}
+
+
+

@@ -1,0 +1,13 @@
+{% extends "base/base.html" %}
+{% block main %}
+    {% include "base/pesquisar.html" %}
+    {% block adicionar_button %}
+    {% endblock adicionar_button %}
+
+    <div class="table-responsive fixed container-fluid mb-2 p-2">
+        <table class="table table-striped">
+            {% block table %}
+            {% endblock table %}
+        </table>
+    </div>
+{% endblock main %}

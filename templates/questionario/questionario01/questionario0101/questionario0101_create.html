@@ -1,0 +1,83 @@
+{% extends "base/base.html" %} {% load crispy_forms_tags %} {% block main %}
+    <h1>ANTES DA INDUÇÃO DA ANESTESISCA - SALA DE ESPERA DO CENTRO CIRURGICO</h1>
+    <form action="" method="post">
+        {% csrf_token %} {#        {{ form | crispy }}#}
+        <div class="row g-3 container-fluid p-3 mt-3 mb-3">
+            <div class="col-md-3">{{ form.cirurgia_segura|as_crispy_field }}</div>
+            <div class="col-md-3">
+                {{ form.pulseira_identificacao|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.prontuario_completo|as_crispy_field }} {{ form.prontuario_completo_se_nao|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.possui_dispositivos|as_crispy_field }} {{ form.possui_dispositivos_se_sim|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.procedimento_confirmado|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.termo_consentimento_c_a|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.exames_laborat_i_d|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.risco_perda_s|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.resserva_hemoderivados|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.resserva_CTI|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.sitio_cirurgico_d|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.jejum|as_crispy_field }} {{ form.jejum_se_sim|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.alergia_conhecida|as_crispy_field }} {{ form.alergia_conhecida_se_sim|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.triconomia_realizada|as_crispy_field }} {{ form.triconomia_realizada_se_sim_01|as_crispy_field }} {{ form.triconomia_realizada_se_sim_02|as_crispy_field }} {{ form.triconomia_realizada_se_sim_03|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.realizou_quimeoterapia|as_crispy_field }} {{ form.realizou_quimeoterapia_se_sim_01|as_crispy_field }} {{ form.realizou_quimeoterapia_se_sim_02|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.realizou_radioterapia|as_crispy_field }} {{ form.realizou_radioterapia_se_sim_01|as_crispy_field }} {{ form.realizou_radioterapia_se_sim_02|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.realizou_hemodialise|as_crispy_field }} {{ form.realizou_hemodialise_se_sim_01|as_crispy_field }} {{ form.realizou_hemodialise_se_sim_02|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.realizou_transplante_o|as_crispy_field }} {{ form.realizou_transplante_o_se_sim|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.verificacao_anestesica_m_v_m_e_a|as_crispy_field }} {{ form.verificacao_anestesica_m_v_m_e_a_se_nao|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.vias_aereas_d_r_a|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.tempo_previsto_cirurgia|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.data_cadastro|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.atualizado|as_crispy_field }}
+            </div>
+        </div>
+        <div class="fixed container-fluid mt-2 mb-2 p-3">
+            <ul class="list-inline text-right">
+                <li class="list-inline-item">
+                    <button type="reset" class="btn btn-secondary">Limpar</button>
+                    <button type="submit" class="btn btn-secondary">Salvar</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+{% endblock main %}

@@ -1,0 +1,72 @@
+{% extends "main/../../base/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block main %}
+    <form action="" method="post">
+        {% csrf_token %}
+
+        <div class="row g-3 container-fluid p-3 mt-3 mb-3">
+            <div class="col-md-3">
+                {{ form.usuario|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.diagnostico_cid|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.sinais_sintomas_fisicos|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.tem_acompanhemento|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.tratamento_realizado|as_crispy_field }}
+                {{ form.tratamento_realizado_out|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.nivel_autonimia|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.historia_progressa|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.alergias|as_crispy_field }}
+                {{ form.alergias_out|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.possiveis_sinais_sintomas_rt|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.nutricao|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.quantas_refeicoes_realizadas|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.possui_alguma_dessas_d|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.alteracao_paladar|as_crispy_field }}
+                {{ form.alteracao_paladar_se_sim|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.qual_ingesta_hidrica_d|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.apresenta|as_crispy_field }}
+            </div>
+            <div class="col-md-3">
+                {{ form.apresenta_mucosite|as_crispy_field }}
+                {{ form.apresenta_mucosite_se_sim|as_crispy_field }}
+            </div>
+            <div class="col-md-6">{{ form.data_cadastro|as_crispy_field }}</div>
+        </div>
+        <div class="fixed container-fluid mt-2 mb-2 p-3">
+            <ul class="list-inline text-right">
+                <li class="list-inline-item">
+                    <button type="reset" class="btn btn-secondary">Limpar</button>
+                    <button type="submit" class="btn btn-secondary">Salvar</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+{% endblock main %}

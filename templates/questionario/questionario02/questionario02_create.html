@@ -1,0 +1,83 @@
+{% extends 'base/create.html' %}
+{% load crispy_forms_filters %}
+{% load crispy_forms_tags %}
+
+
+{% block form %}
+
+
+    <h1>Nova Tratamento Quimioterápico</h1>
+
+    <div class="row g-3 container-fluid p-3 mt-3 mb-3">
+        <div class="col-md-4">
+            {{ form.paciente|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.diagnostico_cid|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.sinais_sintomas_fisicos|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.tem_acompanhemento|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.tratamento_realizado|as_crispy_field }}
+            {{ form.tratamento_realizado_out|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.nivel_autonimia|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.nivel_consciencia|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.historia_progressa|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.alergias|as_crispy_field }}
+            {{ form.alergias_out|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.possiveis_sinais_sintomas_rt|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.nutricao|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.quantas_refeicoes_realizadas|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.possui_alguma_dessas_d|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.alteracao_paladar|as_crispy_field }}
+            {{ form.alteracao_paladar_se_sim|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.qual_ingesta_hidrica_d|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.apresenta|as_crispy_field }}
+        </div>
+        <div class="col-md-4">
+            {{ form.apresenta_mucosite|as_crispy_field }}
+            {{ form.apresenta_mucosite_se_sim|as_crispy_field }}
+        </div>
+         <div class="col-md-4">
+            {{ form.anotacoes_adicionais|as_crispy_field }}
+        </div>
+        <div class="col-md-6">{{ form.data_cadastro|as_crispy_field }}</div>
+        <div class="col-md-6">{{ form.atualizado|as_crispy_field }}</div>
+    </div>
+{% endblock form %}
+
+
+{% block adicionar_button %}
+    <a class="btn btn-secondary" href="{% url 'questionario02.create' %}">
+        <span class="bi bi-plus-circle"></span> Nova Tratamento Quimioterápico
+    </a>
+
+{% endblock adicionar_button %}
+
+
