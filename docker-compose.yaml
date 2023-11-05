@@ -1,0 +1,38 @@
+#version: "3.9"
+networks:
+  nginx-network:
+    driver: bridge
+    # external: true
+
+services:
+  atendimento-enfermagem:
+    build:
+      context: .
+      dockerfile: Dockerfile-python-gunicorn
+    command: gunicorn hospital.wsgi --bind 0.0.0.0:80 --reload
+    restart: unless-stopped
+    volumes:
+      - ../atendimento-enfermagem-django:/atendimento-enfermagem-django
+
+    expose:
+      - 8003
+    ports:
+      - 8003:80
+
+    networks:
+          - nginx-network
+
+
+
+
+
+#    django-uwsgi:
+    #    build:
+    #      context: .
+    #      dockerfile: Dockerfile-python
+    #
+    #    command: uwsgi --http 0.0.0.0:8002 --module hospital.wsgi
+    #    expose:
+    #      - 8002
+    #    ports:
+    #      - 8002:8002

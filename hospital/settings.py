@@ -43,7 +43,7 @@ ALLOWED_HOSTS = ["*"]
 
 # ALLOWED_HOSTS = []
 
-CSRF_TRUSTED_ORIGINS = ['https://*.leoproti.com.br']
+# CSRF_TRUSTED_ORIGINS = ['https://*.leoproti.com.br']
 # Application definition
 
 INSTALLED_APPS = [

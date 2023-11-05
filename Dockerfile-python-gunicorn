@@ -1,0 +1,43 @@
+FROM python:latest
+WORKDIR /atendimento-enfermagem-django
+#ENV PYTHONDONTWRITEBYTECODE 1
+#ENV PYTHONUNBUFFERED 1
+# By copying over requirements first, we make sure that Docker will cache
+# our installed requirements rather than reinstall them on every build
+COPY requirements.txt /atendimento-enfermagem-django/requirements.txt
+#COPY hospital/hosptial_uwsgi.ini /hospital/hosptial_uwsgi.ini
+
+#COPY /hospital/. /hospital
+RUN #apt-get update && apt-get upgrade -y && apt-get install build-essential python -y && apt-get install python-dev -y
+RUN apt-get update && apt-get upgrade -y
+RUN pip install --upgrade pip && pip install -r requirements.txt && pip install gunicorn
+
+
+
+# Now copy in our code, and run it
+
+#CMD python manage.py runserver
+#
+CMD ["python", "manage.py", "collectstatic"]
+CMD ["python", "manage.py", "makemigrations"]
+CMD ["python", "manage.py", "migrate"]
+#
+#CMD ["python", "manage.py", "runserver", "0.0.0.0:8001"]
+
+
+#CMD ["uwsgi", "--socket", ":8001", "--module", "hospital.wsgi"]
+#
+##CMD ["uwsgi", "--http", ":8000", "--wsgi-file", "test.py"]
+#
+#
+##CMD ["uwsgi", "--socket", ":8001", "--wsgi-file", "test.py"]
+#
+##CMD ["uwsgi", "--socket", ":8000", "--wsgi-file", "test.py"]
+#
+##CMD ["uwsgi", "--ini", "hospital_uwsgi.ini"]
+#
+#
+##uwsgi --ini uwsgi.ini
+#
+##EXPOSE 8000
+##ENTRYPOINT ["/home/ubuntu/hello_django/bin/gunicorn_start"]
