@@ -6,9 +6,9 @@ echo "🚀 Iniciando deploy da Recepção Enfermagem..."
 echo "⏹️  Parando containers existentes..."
 docker compose down
 
-# Limpar cache do Docker se necessário
-echo "🧹 Limpando cache..."
-docker system prune -f
+# Limpar volumes se necessário
+echo "🧹 Limpando volumes antigos..."
+docker volume prune -f
 
 # Build e iniciar
 echo "🔨 Construindo e iniciando containers..."
@@ -16,7 +16,7 @@ docker compose up -d --build
 
 # Aguardar inicialização
 echo "⏳ Aguardando inicialização..."
-sleep 10
+sleep 15
 
 # Verificar status
 echo "📊 Status dos containers:"

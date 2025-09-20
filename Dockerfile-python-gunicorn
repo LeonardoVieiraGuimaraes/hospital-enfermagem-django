@@ -10,34 +10,30 @@ FROM python:3.11-slim
 # Configurar variáveis de ambiente
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
+ENV DJANGO_SETTINGS_MODULE=hospital.settings
 
 # Definir diretório de trabalho
 WORKDIR /recepcao-enfermagem-django
 
 # Instalar dependências do sistema
-RUN apt-get update && apt-get upgrade -y \
-    && apt-get install -y --no-install-recommends \
-        build-essential \
+RUN apt-get update && apt-get install -y \
+    build-essential \
     && rm -rf /var/lib/apt/lists/*
 
 # Copiar e instalar dependências Python
-COPY requirements.txt /recepcao-enfermagem-django/requirements.txt
+COPY requirements.txt .
 RUN pip install --upgrade pip \
-    && pip install -r requirements.txt
+    && pip install -r requirements.txt \
+    && pip install gunicorn
 
 # Copiar código da aplicação
-COPY . /recepcao-enfermagem-django/
+COPY . .
 
-# Criar diretórios necessários
-RUN mkdir -p staticfiles
-
-# Executar comandos Django
+# Coletar arquivos estáticos
 RUN python manage.py collectstatic --noinput
-RUN python manage.py makemigrations
-RUN python manage.py migrate
 
 # Expor porta
 EXPOSE 80
 
-# Comando padrão
-CMD ["gunicorn", "hospital.wsgi", "--bind", "0.0.0.0:80", "--workers", "3"]
+# Comando para executar a aplicação
+CMD ["sh", "-c", "python manage.py migrate && gunicorn hospital.wsgi --bind 0.0.0.0:80 --workers 3"]
