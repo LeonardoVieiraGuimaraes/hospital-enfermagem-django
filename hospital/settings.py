@@ -29,21 +29,20 @@ CRISPY_TEMPLATE_PACK = "bootstrap5"
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = "django-insecure-ob38lpqriiabba-br0_t44lps!s$@f#@z548*97b1ifkic@0sx"
+SECRET_KEY = str(os.getenv('SECRET_KEY', 'django-insecure-ob38lpqriiabba-br0_t44lps!s$@f#@z548*97b1ifkic@0sx'))
 
-SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
+DEBUG = os.getenv('DEBUG', 'True').lower() == 'true'
 
-# Ateração
-DEBUG = str(os.getenv('DEBUG'))
+# Hosts permitidos
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 
-# Aterado
-ALLOWED_HOSTS = ["*"]
-
-# ALLOWED_HOSTS = []
-
-# CSRF_TRUSTED_ORIGINS = ['https://*.leoproti.com.br']
+# CSRF trusted origins
+CSRF_TRUSTED_ORIGINS = [
+    'https://*.leoproti.com.br',
+    'http://localhost:8003',
+    'http://127.0.0.1:8003',
+]
 # Application definition
 
 INSTALLED_APPS = [

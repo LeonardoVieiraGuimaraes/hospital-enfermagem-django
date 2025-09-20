@@ -1,0 +1,68 @@
+name: Deploy Recepção Enfermagem to Home Server
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'README.md'
+      - 'comandos.txt'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    name: Deploy Recepção Enfermagem
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🚚 Checkout
+        uses: actions/checkout@v4
+
+      - name: ☁️ Setup Cloudflare
+        run: |
+          wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+          sudo dpkg -i cloudflared-linux-amd64.deb
+
+      - name: 🔑 Setup SSH
+        uses: webfactory/ssh-agent@v0.7.0
+        with:
+          ssh-private-key: ${{ secrets.HOME_SERVER_SSH_KEY }}
+
+      - name: Deploy to Server
+        run: |
+          # Transferir arquivos
+          rsync -avz --delete \
+                --exclude '.git' \
+                --exclude '.github' \
+                --exclude '__pycache__' \
+                --exclude '*.pyc' \
+                --exclude '.env' \
+                --exclude 'db.sqlite3' \
+                --exclude 'staticfiles/' \
+                -e "ssh -o StrictHostKeyChecking=no -o ProxyCommand='cloudflared access ssh --hostname %h'" \
+                ./ leonardovieiraxy@ssh.leoproti.com.br:/home/leonardovieiraxy/projetos/recepcao-enfermagem-django/
+          
+          # Deploy
+          ssh -o StrictHostKeyChecking=no -o ProxyCommand="cloudflared access ssh --hostname %h" \
+              leonardovieiraxy@ssh.leoproti.com.br << 'EOF'
+            cd /home/leonardovieiraxy/projetos/recepcao-enfermagem-django
+            
+            # Parar container se estiver rodando
+            docker compose down 2>/dev/null || true
+            
+            # Build e iniciar
+            docker compose up -d --build
+            
+            # Verificar status
+            echo "✅ Container status:"
+            docker compose ps
+            
+            # Teste rápido
+            sleep 5
+            if curl -s -o /dev/null -w "%{http_code}" http://localhost:8003 | grep -q "200\|302\|403"; then
+              echo "✅ Recepção Enfermagem está rodando!"
+            else
+              echo "⚠️  Verificar logs:"
+              docker compose logs --tail=10
+            fi
+          EOF

@@ -1,26 +1,31 @@
-#version: "3.9"
+version: "3.9"
+
 networks:
   nginx-network:
     driver: bridge
-    # external: true
 
 services:
-  atendimento-enfermagem:
+  recepcao-enfermagem:
     build:
       context: .
       dockerfile: Dockerfile-python-gunicorn
-    command: gunicorn hospital.wsgi --bind 0.0.0.0:80 --reload
+    container_name: recepcao-enfermagem-django
     restart: unless-stopped
     volumes:
-      - ../atendimento-enfermagem-django:/atendimento-enfermagem-django
-
-    expose:
-      - 8003
+      - ./staticfiles:/recepcao-enfermagem-django/staticfiles
+      - ./media:/recepcao-enfermagem-django/media
+    environment:
+      - DEBUG=False
+      - DJANGO_SETTINGS_MODULE=hospital.settings
     ports:
-      - 8003:80
-
+      - "8003:80"
     networks:
-          - nginx-network
+      - nginx-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
 
 
