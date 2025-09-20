@@ -59,7 +59,7 @@ jobs:
             
             # Teste rápido
             sleep 5
-            if curl -s -o /dev/null -w "%{http_code}" http://localhost:8003 | grep -q "200\|302\|403"; then
+            if curl -s -o /dev/null -w "%{http_code}" http://localhost:8010 | grep -q "200\|302\|403"; then
               echo "✅ Recepção Enfermagem está rodando!"
             else
               echo "⚠️  Verificar logs:"

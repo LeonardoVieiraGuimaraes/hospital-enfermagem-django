@@ -24,8 +24,8 @@ docker compose ps
 
 # Teste de conectividade
 echo "🔍 Testando conectividade..."
-if curl -s -o /dev/null -w "%{http_code}" http://localhost:8003 | grep -q "200\|302\|403"; then
-  echo "✅ Recepção Enfermagem está rodando em http://localhost:8003"
+if curl -s -o /dev/null -w "%{http_code}" http://localhost:8010 | grep -q "200\|302\|403"; then
+  echo "✅ Recepção Enfermagem está rodando em http://localhost:8010"
 else
   echo "❌ Erro na inicialização. Verificando logs:"
   docker compose logs --tail=20

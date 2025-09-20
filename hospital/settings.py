@@ -40,8 +40,8 @@ ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '*').split(',')
 # CSRF trusted origins
 CSRF_TRUSTED_ORIGINS = [
     'https://*.leoproti.com.br',
-    'http://localhost:8003',
-    'http://127.0.0.1:8003',
+    'http://localhost:8010',
+    'http://127.0.0.1:8010',
 ]
 # Application definition
 

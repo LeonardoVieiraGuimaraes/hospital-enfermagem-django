@@ -18,7 +18,7 @@ services:
       - DEBUG=False
       - DJANGO_SETTINGS_MODULE=hospital.settings
     ports:
-      - "8003:80"
+      - "8010:80"
     networks:
       - nginx-network
     healthcheck:

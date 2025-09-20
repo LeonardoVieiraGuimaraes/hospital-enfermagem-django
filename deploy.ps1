@@ -26,9 +26,9 @@ docker compose ps
 # Teste de conectividade
 Write-Host "🔍 Testando conectividade..." -ForegroundColor Yellow
 try {
-    $response = Invoke-WebRequest -Uri "http://localhost:8003" -UseBasicParsing -TimeoutSec 5
+    $response = Invoke-WebRequest -Uri "http://localhost:8010" -UseBasicParsing -TimeoutSec 5
     if ($response.StatusCode -in @(200, 302, 403)) {
-        Write-Host "✅ Recepção Enfermagem está rodando em http://localhost:8003" -ForegroundColor Green
+        Write-Host "✅ Recepção Enfermagem está rodando em http://localhost:8010" -ForegroundColor Green
     }
 } catch {
     Write-Host "❌ Erro na inicialização. Verificando logs:" -ForegroundColor Red
@@ -36,4 +36,4 @@ try {
 }
 
 Write-Host "🏁 Deploy concluído!" -ForegroundColor Green
-Write-Host "🌐 Acesse: http://localhost:8003" -ForegroundColor Cyan
+Write-Host "🌐 Acesse: http://localhost:8010" -ForegroundColor Cyan

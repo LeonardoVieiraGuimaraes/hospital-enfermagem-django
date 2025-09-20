@@ -46,7 +46,7 @@ server {
     server_name seu-dominio.com;
     
     location / {
-        proxy_pass http://localhost:8003;
+        proxy_pass http://localhost:8010;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -88,8 +88,8 @@ docker compose restart recepcao-enfermagem
 
 ## 📊 Monitoramento
 
-- **URL**: http://localhost:8003
-- **Admin**: http://localhost:8003/admin
+- **URL**: http://localhost:8010
+- **Admin**: http://localhost:8010/admin
 - **Healthcheck**: Configurado no docker-compose
 
 ## 🛠️ Tecnologias
